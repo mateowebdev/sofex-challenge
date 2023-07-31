@@ -43,7 +43,7 @@ class EmpleadoController {
   /*                          ELIMINAR EMPLEADO BUSCADO                         */
   /* -------------------------------------------------------------------------- */
   async deleteEmpleado(req, res, next) {
-    const userId = decodeURIComponent(req.params.userId);
+    const userId = req.params.userId;
 
     try {
       const empleado = await empleadoService.deleteEmpleado(userId);
@@ -101,11 +101,8 @@ class EmpleadoController {
       res.json(empleado);
     } catch (err) {
       console.error(err);
-      if (err.nativeError.code === "23505") {
-        res.status(400).json({ message: "ID en uso" });
-      } else {
-        res.status(500).json(err);
-      }
+
+      res.status(500).json(err);
     }
   }
   /* -------------------------------------------------------------------------- */

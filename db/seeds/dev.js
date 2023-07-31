@@ -16,7 +16,7 @@ exports.seed = async function (knex) {
       nombre: "Linda",
       apellido: "Perez",
       cargo: "Developer",
-      user_id: "abcd9876?%&/",
+      user_id: "a*b*cd9876?%",
       salario: 80,
     },
   ]);
